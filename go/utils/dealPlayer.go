@@ -1,7 +1,7 @@
 package utils
 
 import "poker/model"
-func Deal (p *model.GameData,Cards[]int){
+func(T*TexasDealer) Deal (p *model.GameData,Cards[]int){
 	all:=[][]int{}
 	play:=p.GetAllPlayer()
     

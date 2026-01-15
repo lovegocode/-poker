@@ -10,7 +10,7 @@ type GameData struct{
 func NewGameData(person int)*GameData{
 	G:=&GameData{Players:make([]*Player,0,person),
 		Person:person}
-    
+    G.SetPlayer()
 	return G
 }
 func (g*GameData)SetPlayer(){
@@ -26,6 +26,4 @@ func (g*GameData)Add(id int,hand[]int)*GameData{
 func (g*GameData)GetAllPlayer()[]*Player{
    return g.Players
 }
-func (g*GameData)IndexPlayer(index int)*Player{
-	   return g.Players[index]
-}
+

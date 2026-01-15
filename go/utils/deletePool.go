@@ -1,10 +1,11 @@
 package utils
 
-import "poker/model"
-func DeletePool(board[]int,g*model.GameData)[]int{
+func(T*TexasDealer) DeletePool()[]int{
     pool:=make([]int,0)
-	pool=append(pool,board...)
-	for _,v:=range g.Players{
+	cards:=T.board.GetBoardCards()
+	player:=T.data.GetAllPlayer()
+	pool=append(pool,cards...)
+	for _,v:=range player{
 		pool=append(pool,v.Hand...)
 	}
 	return pool

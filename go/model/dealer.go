@@ -1,10 +1,12 @@
 package model 
 type Dealer interface{
-	NewDeck()(*Deck,Decker)
+   Init()
 }
 type Decker interface{
-	ShuffleCard(d*Deck)
-    Dealing(need int,d*Deck)[]int
-	Known(pool[]int,d*Deck)
+
+	ShuffleCard()
+    Dealing(need int)[]int
+	Known(pool[]int)
 	Process(g*GameData,d*Deck,b*Board)
+    
 }
