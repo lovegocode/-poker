@@ -6,4 +6,5 @@ type Decker interface{
 	ShuffleCard(d*Deck)
     Dealing(need int,d*Deck)[]int
 	Known(pool[]int,d*Deck)
+	Process(g*GameData,d*Deck,b*Board)
 }

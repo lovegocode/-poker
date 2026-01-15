@@ -22,4 +22,7 @@ func (b*Board)ProcessCard(id int,hand []int)*Process{
 func(b*Board) GetBoardCards()[]int{
 	return b.boardCards
 }
+func(b*Board)Add(card[]int){
+  b.boardCards=append(b.boardCards,card...)
+}
 

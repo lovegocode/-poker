@@ -1,9 +1,9 @@
 package main
 
 import (
-"poker/service"
+	"poker/service"
 )
 func main(){
-	service.GameStartText()
-    
+	//service.GameStartText()
+    service.GameMain()
 } 
