@@ -1,0 +1,25 @@
+package model
+//公牌
+type Board struct {
+	boardCards[]int
+   
+}
+type Process struct{
+   id int
+   allProcess[]int
+}
+func NewBoard(cards []int)*Board{
+   b:=&Board{boardCards:make([]int,0),}
+   b.boardCards=append(b.boardCards,cards...)
+   return b
+}
+func (b*Board)ProcessCard(id int,hand []int)*Process{
+   p:=&Process{id:id,allProcess:make([]int,0)}
+   p.allProcess=append(p.allProcess,b.boardCards...)
+   p.allProcess=append(p.allProcess,hand...)
+   return p
+}
+func(b*Board) GetBoardCards()[]int{
+	return b.boardCards
+}
+

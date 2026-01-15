@@ -4,5 +4,6 @@ import (
 "poker/service"
 )
 func main(){
-	service.GameStart()
+	service.GameStartText()
+    
 } 

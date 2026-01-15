@@ -3,7 +3,7 @@ package utils
 import "poker/model"
 type TexasDealer struct{}
 func (T*TexasDealer)NewDeck()(*model.Deck,model.Decker){
-    d:=&model.Deck{SendCard:make([]int,0)}
+    d:=&model.Deck{SendCard:make([]int,0),Knowns:make([]int,0)}
 	d.Color=[]int{0,1,2,3}
 	d.Number=make([]int,15)
     for i:=2;i<15;i++{
