@@ -16,7 +16,7 @@ func (s*StraightFlush) Processing(d*model.Detail)(bool,int){
 	 }
 	result,max:=utils.DealStright(mask)
 	 if result==true{
-		score:=9*100+max
+		score:=90000+max
        return true,score
 	}
 

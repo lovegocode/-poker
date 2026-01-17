@@ -1,5 +1,5 @@
 package utils
-import"fmt"
+
 import"poker/model"
 func(t*TexasDealer) Init(b*model.Board,data*model.GameData)[][]int{
 	deck:=NewDeck()
@@ -10,6 +10,6 @@ func(t*TexasDealer) Init(b*model.Board,data*model.GameData)[][]int{
 	t.ShuffleCard()
 	t.Process()//补玩家牌
 	all:=t.Deal()
-    fmt.Println(all)
+    
 	return all
 }

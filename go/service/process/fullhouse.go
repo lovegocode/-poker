@@ -21,7 +21,7 @@ func(f*FullHouse)Processing(d*model.Detail)(bool,int){
 	 }    
 }
     if three!=0&&two!=0{
-	  score:=700+three+two
+	  score:=70000+three*3+two*2
 	  return true,score
 	}
    return false,0
