@@ -1,7 +1,7 @@
 package model
 type Judge interface{
 	DealCount()
-	InitCard(id int,card[][]int)
+	InitCard(id int,board*Board)
 	CallBack(func(score float32))
 }
 type Score interface{

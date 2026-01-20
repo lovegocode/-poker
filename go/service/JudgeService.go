@@ -7,7 +7,7 @@ import (
    
 type TexasJudge struct {
    Id int
-  Deal [][]int
+  board *model.Board
   Count *model.CountId
   DealScore model.Score
   Win float32
@@ -20,9 +20,8 @@ func NewJudge()*TexasJudge{
 func (t*TexasJudge)CallBack(f func(score float32)){
     t.callback=f //回调函数
 }
-func(t*TexasJudge) InitCard(id int,card[][]int){
+func(t*TexasJudge) InitCard(id int,board*model.Board){
   t.Id=id
-  t.Deal=card
   t.DealCount()//计数桶
   t.DealMask()//预处理 掩码
   t.Start()

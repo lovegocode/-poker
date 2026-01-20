@@ -11,8 +11,8 @@ func Begining(){
 	beginner.Hand=[]int{58,59}
 	beginner.Id=0
 	beginner.PublicCard=[]int{}
-	beginner.Person=6
-    beginner.Frequency=100000
+	beginner.Person=9
+    beginner.Frequency=10000
 	result:=func(s float32){
 		win+=s
 	}
