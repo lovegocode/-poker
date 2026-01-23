@@ -20,4 +20,5 @@ func(T*TexasDealer) Deal (){
 	 } 
   }
 
+
 }

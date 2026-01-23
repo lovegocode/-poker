@@ -2,7 +2,7 @@ package service
 
 import (
 	"poker/model"
-	"fmt"
+	
 )
  
 func GameMain(data*model.Begin,result func(s float32)){
@@ -14,14 +14,13 @@ func GameMain(data*model.Begin,result func(s float32)){
 	 id:=data.Id//知道自己哪个位置
 	player.SetAction(3,1)
 	player.SetAction(5,1)
-     
     //添加公牌
 	board:=model.NewBoard(data.PublicCard,data.Person)
      dealer:=texas.MakeDealer()
 	
 	 dealer.Init(board,player)
 	judge:=texas.MakeJudge()
-	fmt.Println("这里没问题",len(board.Entry))
+	
     judge.CallBack(result)
 	judge.InitCard(id,board)
 }
