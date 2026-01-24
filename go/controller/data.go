@@ -1,11 +1,14 @@
 package controller
 
 import (
-	"poker/model"
-	"poker/service"
 	"fmt"
+	"poker/model"
+	"poker/model/httpModel"
+	"poker/service"
 )
-func Begining(){
+func Begining(cal*httpModel.CalData)float32{
+	var req float32
+	
 	win:=float32(0)
 	beginner:=&model.Begin{}
 	beginner.Hand=[]int{58,59}
@@ -19,5 +22,7 @@ func Begining(){
 	for i:=0;i<beginner.Frequency;i++{
 		service.GameMain(beginner,result)
 	}
-	fmt.Println((float32(win)/float32(beginner.Frequency))*100)
+	req=(float32(win)/float32(beginner.Frequency))
+	fmt.Println(req)
+    return req
 }
