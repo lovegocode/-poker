@@ -15,15 +15,22 @@ func NewGameData(person int)*GameData{
 }
 func (g*GameData)SetPlayer(){
 	for i:=0;i<g.Person;i++{
-		p:=&Player{Id:i,Hand:make([]int,0)}
+		p:=&Player{Id:i,Hand:make([]int,0),Action:0}
        g.Players=append(g.Players,p)
+	 
 	}
 }
-func (g*GameData)Add(id int,hand[]int)*GameData{
+func (g*GameData)Add(id int,hand[]int,action int)*GameData{
       g.Players[id].Hand=hand
+	  g.Players[id].Action=action
 	return g
 }
 func (g*GameData)GetAllPlayer()[]*Player{
    return g.Players
 }
-
+func (g*GameData)GetIndex(id int)*Player{
+   return g.Players[id]
+}
+func (g*GameData)SetAction(id int,action int){
+	g.Players[id].Action=action
+}

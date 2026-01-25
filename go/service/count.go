@@ -2,28 +2,46 @@ package service
 
 import (
 	"poker/model"
-   "fmt"
+   
 )
 
 func(t*TexasJudge) DealCount(){
-   c:=model.CountId{}
-   for i:=0;i<len(t.Deal);i++{
-      cards:=t.Deal[i]//deal是一个二维切片
+   count:=model.CountId{}
+   t.Count=&count
+       
+       
+   for i:=0;i<len(t.board.Entry);i++{
+      cards:=t.board.Entry[i].GetEntryCards()
        card:=[]int{}
-       color:=make([]int,5)
-       number:=make([]int,15)
-   for _,v:=range cards{
-        card=append(card,v)
+       countcolor:=make([]int,4)
+       countnumber:=make([]int,15)
+       color:=[]int{}
+       number:=[]int{}
+      for i:=0;i<len(cards);i++{
+         card=append(card,cards[i])
+         c:=cards[i]&3
+         color=append(color,c)
+         countcolor[c]++
+        n:=cards[i]>>2
+        number=append(number,n)
+        countnumber[n]++
+        
+      }
+       
+       /* card=append(card,cards...)
        c:=v&3
-       color[c]++
+       color=append(color,c)
+       countcolor[c]++
        n:=v>>2
-       number[n]++
+       number=append(number,n)
+       countnumber[n]++
+       fmt.Println(card)*/
+     count.SetAll(color,number,card,countcolor,countnumber)
+     
    }
-   c.SetAll(color,number,card)
+   
 }
-  all:=c.GetAll()
-  fmt.Println(all)
-  for i:=0;i<len(all);i++{
-    fmt.Println(all[i].Number)
-  }
-}
+   
+
+
+  

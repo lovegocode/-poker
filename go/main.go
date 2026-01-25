@@ -1,9 +1,10 @@
 package main
 
 import (
-	"poker/service"
+	"poker/controller"
 )
+
 func main(){
-	//service.GameStartText()
-    service.GameMain()
+    
+	controller.Route()
 } 
