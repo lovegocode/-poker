@@ -8,8 +8,7 @@ import (
 func(t*TexasJudge) DealCount(){
    count:=model.CountId{}
    t.Count=&count
-       
-       
+      
    for i:=0;i<len(t.board.Entry);i++{
       cards:=t.board.Entry[i].GetEntryCards()
        card:=[]int{}
@@ -28,14 +27,7 @@ func(t*TexasJudge) DealCount(){
         
       }
        
-       /* card=append(card,cards...)
-       c:=v&3
-       color=append(color,c)
-       countcolor[c]++
-       n:=v>>2
-       number=append(number,n)
-       countnumber[n]++
-       fmt.Println(card)*/
+      
      count.SetAll(color,number,card,countcolor,countnumber)
      
    }

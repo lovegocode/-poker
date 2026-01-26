@@ -50,23 +50,24 @@ func (t*TexasJudge)Start(){
   t.Win+= t.Compare(scores)
   
 }
-func (t*TexasJudge)Compare(scores[]int)float32{
-    
+func (t*TexasJudge)Compare(scores[]int)float32{ 
    my:=scores[t.Id]
-   
    draw:=0
    maxscore:=scores[0]
-   for _,v:=range scores{
-     
+   for i,v:=range scores{
+      if i==t.Id{
+        continue
+      }
       if v>maxscore{
         maxscore=v
       }
    }
    if my<maxscore{
-     t.RecordBack(maxscore)
+     t.RecordBack(maxscore)//回调记录输给哪些牌
     return float32(0)
    }
    for _,j:=range scores{
+     
      if j==maxscore{
       draw++
      }

@@ -20,7 +20,7 @@ func Begining(cal*httpModel.CalData)float32{
 	var req float32
 	 Hand:=cal.Cards.Hand
 	 dealHand:=utils.DealMap(Hand)
-     dealPublic:=utils.DealMap(cal.Cards.Hand)
+     dealPublic:=utils.DealMap(cal.Cards.PublicCards)
 	 fmt.Println(dealHand)
 	win:=float32(0)
 	beginner:=&model.Begin{}
@@ -28,11 +28,11 @@ func Begining(cal*httpModel.CalData)float32{
 	beginner.Id=cal.Cards.Position
 	beginner.PublicCard=dealPublic
 	beginner.Person=cal.Table.Person
-    beginner.Frequency=10000
+    beginner.Frequency=100000
 	
 	job:=make(chan struct{},200)
 	chanResult:=make(chan float32,200)
-	worker:=2
+	worker:=1
      var wait sync.WaitGroup
 	wait.Add(worker)
 	for w:=0;w<worker;w++{

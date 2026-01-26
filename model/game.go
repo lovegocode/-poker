@@ -34,6 +34,4 @@ func (g*GameData)GetIndex(id int)*Player{
 func (g*GameData)SetAction(id int,action int){
 	g.Players[id].Action=action
 }
-func (g*GameData)GetAction(){
-	
-}
+
