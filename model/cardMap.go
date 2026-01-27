@@ -20,3 +20,30 @@ var NumberMap=map[string]int{
 	"K":13,
 	"A":14,
 }
+var Suit=make(map[int]string)
+var Number=make(map[int]string)
+func InitMap(){
+	for i,v:=range SuitMap{
+		Suit[v]=i
+	}
+	for j,k:=range NumberMap{
+		Number[k]=j
+	}
+}
+func SuitNumber(color int,number int)string{
+	 stringSuit:=Suit[color]
+	 stringNumber:=Number[number]
+	 return stringSuit+stringNumber
+}
+type HandInfo struct {
+	Hand []string
+	Win float32
+	
+}
+var HandMap=make(map[int]HandInfo)
+func SetHandMap(id int, hand[]string,win float32){
+	HandMap[id]=HandInfo{
+		Hand:hand,
+		Win :win,
+	}
+}
