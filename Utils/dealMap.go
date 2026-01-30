@@ -1,8 +1,8 @@
-package utils
+package Utils
 
 import "poker/model"
 
-//把前端数据过map
+//把数据过map
 func DealMap(pool[]string)[]int{
 	list:=make([]int,0)
 	

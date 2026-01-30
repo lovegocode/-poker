@@ -1,4 +1,4 @@
-package RangeFile
+package Utils
 
 import (
 	"bufio"
@@ -11,6 +11,7 @@ type AllHand struct {
 type Hands struct {
 	Hand []string `json:"hand"`
 	Win float32  `json:"win,string"`
+	MapHand []int
 }
 func ReadFile(path string)(AllHand,error){
 	allhand:=AllHand{}

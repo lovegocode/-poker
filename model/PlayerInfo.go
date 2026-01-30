@@ -7,6 +7,7 @@ type Game interface{
 type PlayerInfo struct{
    Players []*Player
    Person int 
+   SkipId int
 }
 type Player struct{
    Hand [] int

@@ -9,7 +9,5 @@ func NewTexasDealer()*TexasDealer{
 	deck:=model.NewDeck()
 	return &TexasDealer{Deck:deck}
 }
-func (T*TexasDealer)Test (){
-     
-}
+
 
