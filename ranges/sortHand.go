@@ -1,10 +1,12 @@
 package ranges
 
-import "sort"
+import (
+	"poker/RangeFile"
+	"sort"
+)
 
 
-
-func SortFile(hand AllHand)AllHand{
+func SortFile(hand RangeFile.AllHand)RangeFile.AllHand{
    sort.Slice(hand.HandIndex,func(i int, j int) bool{
      return hand.HandIndex[i].Win>hand.HandIndex[j].Win
    })

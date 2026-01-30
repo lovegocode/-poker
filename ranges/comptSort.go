@@ -1,9 +1,14 @@
 package ranges
+
+import (
+	
+	"poker/RangeFile"
+)
 func  Compt (){
 	path:="../../Range/handvs1.jsonl"
 	dir:="../../Range"
 	file:="sortVs1.jsonl"
-	data,_:=ReadFile(path)
+	data,_:=RangeFile.ReadFile(path)
 	  sortdata:=SortFile(data)
 	for _,v:=range sortdata.HandIndex{
        hand:=v.Hand

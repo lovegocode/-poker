@@ -12,33 +12,25 @@ type TexasJudge struct {
   Count *model.CountId
   DealScore model.Score
   Win float32
-  callback(func(score float32))
-  RecordBack(func(score int))
 }
 
 func NewJudge()*TexasJudge{
 	return &TexasJudge{}
 }
-func (t*TexasJudge)CallBack(f func(score float32)){
-    t.callback=f //回调函数
-}
-func(t*TexasJudge)Record(f func (scorec int)){
-  t.RecordBack=f
-}
-func(t*TexasJudge) InitCard(id int,board*model.Board){
+
+func(t*TexasJudge) InitCard(id int,board*model.Board)model.Result{
   t.Id=id
   t.board=board
   
   t.DealCount()//计数桶
   t.DealMask()//预处理 掩码
-  t.Start()
-  
-  t.callback(t.Win)
+  result:=t.Start()
+  return result
 }
  
-func (t*TexasJudge)Start(){
+func (t*TexasJudge)Start()model.Result{
     var scores []int
-   
+    
    for i:=0;i<len(t.Count.Id);i++{
      chain:=service.NewChain()
      d:=t.Count.Id[i]
@@ -47,13 +39,18 @@ func (t*TexasJudge)Start(){
     
      scores=append(scores,score)
    }
-  t.Win+= t.Compare(scores)
-  
+    win,data:= t.Compare(scores)
+   result:= model.Result{
+    Win: win,
+    Lose: data,
+  }
+  return result
 }
-func (t*TexasJudge)Compare(scores[]int)float32{ 
+func (t*TexasJudge)Compare(scores[]int)(float32,[]int){ 
    my:=scores[t.Id]
    draw:=0
    maxscore:=scores[0]
+   recond:=[]int{}
    for i,v:=range scores{
       if i==t.Id{
         continue
@@ -63,8 +60,8 @@ func (t*TexasJudge)Compare(scores[]int)float32{
       }
    }
    if my<maxscore{
-     t.RecordBack(maxscore)//回调记录输给哪些牌
-    return float32(0)
+     recond=append(recond,maxscore)
+    return float32(0),recond
    }
    for _,j:=range scores{
      
@@ -73,7 +70,7 @@ func (t*TexasJudge)Compare(scores[]int)float32{
      }
    }
    if draw!=0{
-   return float32(1)/float32(draw)
+   return float32(1)/float32(draw),recond
    }
-   return float32(1)
+   return float32(1),recond
 }

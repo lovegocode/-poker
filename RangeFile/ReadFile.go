@@ -1,4 +1,4 @@
-package ranges
+package RangeFile
 
 import (
 	"bufio"

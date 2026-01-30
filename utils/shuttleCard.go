@@ -9,3 +9,8 @@ func (T*TexasDealer)ShuffleCard(){
 		card[i],card[j]=card[j],card[i]
 	})
 }
+//抽数字索引
+func RandRange(index int)int{
+   randIndex:=rand.IntN(index)
+   return randIndex
+}
